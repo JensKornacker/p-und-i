@@ -1,0 +1,35 @@
+openapi: 3.0.3
+info:
+  description: Cash A API
+  version: '1.0'
+  title: cash A
+servers:
+  - url: /api/v1
+
+paths:
+  /cash/request:
+    post:
+      tags:
+        - cash
+      summary: notify about a cash-a request
+      operationId: requestCash
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CashAParams'
+      responses:
+        200:
+          description: the cash
+          content:
+            application/json:
+              schema:
+                description: the cash id
+                type: string
+components:
+  schemas:
+    CashAParams:
+      type: object
+      properties:
+        cashType:
+          type: string

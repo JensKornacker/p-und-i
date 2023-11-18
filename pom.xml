@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <!--<parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.1.5</version>
+        <relativePath/> &lt;!&ndash; lookup parent from repository &ndash;&gt;
+    </parent>-->
+
+    <groupId>lu.hal</groupId>
+    <artifactId>cash-workflow</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>cash-workflow</name>
+    <description>Demo workflow project for hal</description>
+
+    <properties>
+        <org.springframework.boot.version>2.7.16</org.springframework.boot.version>
+        <java.version>17</java.version>
+        <mapstruct.version>1.5.5.Final</mapstruct.version>
+        <vanillabp.camunda8.spring.boot.adapter.version>1.0.6</vanillabp.camunda8.spring.boot.adapter.version>
+        <vanillabp-spi.version>1.0.2</vanillabp-spi.version>
+        <vanillabp.spring.boot.version>1.0.6-SNAPSHOT</vanillabp.spring.boot.version>
+    </properties>
+
+    <modules>
+        <module>cash-a</module>
+        <module>main-container</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-jpa</artifactId>
+                <version>${org.springframework.boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${org.springframework.boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.liquibase</groupId>
+                <artifactId>liquibase-core</artifactId>
+                <version>4.14.0</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.postgresql</groupId>
+                <artifactId>postgresql</artifactId>
+                <version>42.6.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>1.18.30</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct</artifactId>
+                <version>${mapstruct.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.camunda.community.vanillabp</groupId>
+                <artifactId>camunda8-spring-boot-adapter</artifactId>
+                <version>${vanillabp.camunda8.spring.boot.adapter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.vanillabp</groupId>
+                <artifactId>spi-for-java</artifactId>
+                <version>${vanillabp-spi.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.vanillabp</groupId>
+                <artifactId>spring-boot-support</artifactId>
+                <version>${vanillabp.spring.boot.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <image>
+                        <builder>paketobuildpacks/builder-jammy-base:latest</builder>
+                    </image>
+                    <excludes>
+                        <exclude>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                        </exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

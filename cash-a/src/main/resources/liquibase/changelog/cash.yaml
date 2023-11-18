@@ -1,0 +1,16 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: jensitus
+      changes:
+        - createTable:
+            tableName: cash_a
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: type
+                  type: varchar(128)
