@@ -1,4 +1,4 @@
-package lu.hal.config;
+package lu.hal.demo.config;
 
 import java.sql.Connection;
 import javax.sql.DataSource;
@@ -14,11 +14,11 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.DependsOn;
 
 @Configuration
-public class CashALiquibaseConfiguration {
+public class HalDemoLiquibaseConfiguration {
 
         @Bean
-        @ConfigurationProperties(prefix = "spring.liquibase.cash-a")
-        public LiquibaseProperties cashALiquibaseProperties() {
+        @ConfigurationProperties(prefix = "spring.liquibase.hal-demo")
+        public LiquibaseProperties halDemoLiquibaseProperties() {
             return new LiquibaseProperties();
         }
 
@@ -26,7 +26,7 @@ public class CashALiquibaseConfiguration {
         @DependsOn("liquibase")
         public SpringLiquibase cashALiquibase(final DataSource dataSource) {
 
-            final var properties = cashALiquibaseProperties();
+            final var properties = halDemoLiquibaseProperties();
 
             final var liquibase = new SpringLiquibase() {
                 @Override

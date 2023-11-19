@@ -1,7 +1,0 @@
-spring:
-  liquibase:
-    cash-a:
-      change-log: classpath:liquibase/cash-a-master.yaml
-      database-change-log-table: casha_changelog
-      database-change-log-lock-table: casha_changeloglock
-      contexts: cash-a   # see https://github.com/liquibase/liquibase/issues/4582

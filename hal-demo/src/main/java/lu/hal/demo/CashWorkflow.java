@@ -1,8 +1,8 @@
-package lu.hal;
+package lu.hal.demo;
 
 import org.springframework.stereotype.Service;
 
-@Service
+// @Service
 public class CashWorkflow {
 
 }

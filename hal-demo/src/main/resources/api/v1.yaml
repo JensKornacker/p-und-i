@@ -1,35 +1,35 @@
 openapi: 3.0.3
 info:
-  description: Cash A API
+  description: Hal Demo API
   version: '1.0'
-  title: cash A
+  title: Hal Demo
 servers:
   - url: /api/v1
 
 paths:
-  /cash/request:
+  /hal-demo/request:
     post:
       tags:
-        - cash
-      summary: notify about a cash-a request
-      operationId: requestCash
+        - halDemo
+      summary: notify about a hal-demo request
+      operationId: requestHalDemo
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CashAParams'
+              $ref: '#/components/schemas/HalDemo'
       responses:
         200:
-          description: the cash
+          description: the hal-demo
           content:
             application/json:
               schema:
-                description: the cash id
+                description: the hal-demo id
                 type: string
 components:
   schemas:
-    CashAParams:
+    HalDemo:
       type: object
       properties:
-        cashType:
+        demoType:
           type: string

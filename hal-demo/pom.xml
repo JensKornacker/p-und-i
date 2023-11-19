@@ -9,7 +9,7 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>cash-a</artifactId>
+    <artifactId>hal-demo</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -87,6 +87,11 @@
                             <version>1.5.5.Final</version>
                         </path>
                     </annotationProcessorPaths>
+                    <compilerArgs>
+                        <compilerArg>
+                            -Amapstruct.defaultComponentModel=spring
+                        </compilerArg>
+                    </compilerArgs>
                 </configuration>
             </plugin>
 
@@ -103,9 +108,10 @@
                         <configuration>
                             <inputSpec>${project.basedir}/src/main/resources/api/v1.yaml</inputSpec>
                             <generatorName>spring</generatorName>
-                            <apiPackage>lu.hal.cash-a.api.v1</apiPackage>
-                            <modelPackage>lu.hal.cash-a.api.v1</modelPackage>
+                            <apiPackage>lu.hal.demo.api.v1</apiPackage>
+                            <modelPackage>lu.hal.demo.api.v1</modelPackage>
                             <generateSupportingFiles>true</generateSupportingFiles>
+                            <modelNameSuffix>Dto</modelNameSuffix>
                             <configOptions>
                                 <interfaceOnly>true</interfaceOnly>
                                 <useSpringController>true</useSpringController>

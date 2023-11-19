@@ -1,14 +1,14 @@
 databaseChangeLog:
   - changeSet:
-      id: 1
+      id: hal-demo-table
       author: jensitus
       changes:
         - createTable:
-            tableName: cash_a
+            tableName: hal_demo
             columns:
               - column:
                   name: id
-                  type: int
+                  type: varchar(128)
                   constraints:
                     primaryKey: true
               - column:

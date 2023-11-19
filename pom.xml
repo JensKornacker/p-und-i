@@ -22,11 +22,11 @@
         <mapstruct.version>1.5.5.Final</mapstruct.version>
         <vanillabp.camunda8.spring.boot.adapter.version>1.0.6</vanillabp.camunda8.spring.boot.adapter.version>
         <vanillabp-spi.version>1.0.2</vanillabp-spi.version>
-        <vanillabp.spring.boot.version>1.0.6-SNAPSHOT</vanillabp.spring.boot.version>
+        <vanillabp.spring.boot.version>1.0.5</vanillabp.spring.boot.version>
     </properties>
 
     <modules>
-        <module>cash-a</module>
+        <module>hal-demo</module>
         <module>main-container</module>
     </modules>
 
