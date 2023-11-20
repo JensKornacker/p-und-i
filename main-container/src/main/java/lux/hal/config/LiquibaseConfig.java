@@ -1,4 +1,4 @@
-package lu.hal.config;
+package lux.hal.config;
 
 import javax.sql.DataSource;
 

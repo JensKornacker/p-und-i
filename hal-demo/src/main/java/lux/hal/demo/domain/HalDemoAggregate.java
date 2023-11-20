@@ -1,4 +1,4 @@
-package lu.hal.demo.domain;
+package lux.hal.demo.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,11 +7,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
-import org.mapstruct.Builder;
 
 @Entity
 @Table(name = "hal_demo")
@@ -22,26 +25,26 @@ public class HalDemoAggregate {
     private String id;
 
     @Column(name = "type")
-    private String type;
+    private String demoType;
 
-    /********
-     * Due to a known bug in mapstruct we use manually written Getters and Setters:
+    /* *******
+     * Due to a known bug in mapstruct in combination with Lombok annotations
+     * we use manually written Getters and Setters
      ******** */
-
 
     public String getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(final String id) {
         this.id = id;
     }
 
-    public String getType() {
-        return type;
+    public String getDemoType() {
+        return demoType;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setDemoType(final String demoType) {
+        this.demoType = demoType;
     }
 }

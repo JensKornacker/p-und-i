@@ -1,7 +1,6 @@
-package lu.hal;
+package lux.hal;
 
 import io.vanillabp.springboot.ModuleAndWorkerAwareSpringApplication;
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication

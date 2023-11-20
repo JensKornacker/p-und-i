@@ -1,35 +1,35 @@
-package lu.hal.demo.service;
-
-import io.vanillabp.spi.process.ProcessService;
-import io.vanillabp.spi.service.WorkflowService;
-import io.vanillabp.spi.service.WorkflowTask;
-import lombok.extern.slf4j.Slf4j;
-import lu.hal.demo.api.v1.HalDemoDto;
-import lu.hal.demo.domain.HalDemoAggregate;
-import lu.hal.demo.mapper.HalDemoMapper;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+package lux.hal.demo.service;
 
 import java.util.UUID;
 
-@Service
+import io.vanillabp.spi.process.ProcessService;
+import io.vanillabp.spi.service.BpmnProcess;
+import io.vanillabp.spi.service.WorkflowService;
+import io.vanillabp.spi.service.WorkflowTask;
+import lombok.extern.slf4j.Slf4j;
+import lux.hal.demo.api.v1.HalDemoDto;
+import lux.hal.demo.domain.HalDemoAggregate;
+import lux.hal.demo.mapper.HalDemoMapper;
+import org.mapstruct.factory.Mappers;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
 @WorkflowService(workflowAggregateClass = HalDemoAggregate.class)
 @Slf4j
-public class HalDemo {
+public class HalDemoWorkflow {
 
     @Autowired
     private ProcessService<HalDemoAggregate> halDemoProcessService;
 
-    @Autowired
-    private HalDemoMapper halDemoMapper;
-
     @WorkflowTask(taskDefinition = "demoTask")
     public void demoTask() {
-        System.out.println("demoTask");
+        log.info("demoTask");
     }
 
     public String startHalDemoWorkflow(HalDemoDto halDemoDto) throws Exception {
-        HalDemoAggregate halDemoAggregate = halDemoMapper.mapToEntity(halDemoDto);
+        final HalDemoMapper mapper = Mappers.getMapper(HalDemoMapper.class);
+        HalDemoAggregate halDemoAggregate = mapper.mapToEntity(halDemoDto);
         halDemoAggregate.setId(UUID.randomUUID().toString());
         HalDemoAggregate hal = halDemoProcessService.startWorkflow(halDemoAggregate);
         return hal.getId();
@@ -37,7 +37,7 @@ public class HalDemo {
 
     @WorkflowTask(taskDefinition = "secondDemoTask")
     public void secondDemoTask() {
-        System.out.println("secondDemoTask");
+        log.info("second Demo Task");
     }
 
 }

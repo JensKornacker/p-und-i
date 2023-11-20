@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>lu.hal</groupId>
+        <groupId>lux.hal</groupId>
         <artifactId>cash-workflow</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
@@ -84,12 +84,17 @@
                         <path>
                             <groupId>org.mapstruct</groupId>
                             <artifactId>mapstruct-processor</artifactId>
-                            <version>1.5.5.Final</version>
+                            <version>${mapstruct.version}</version>
+                        </path>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>${lombok.version}</version>
                         </path>
                     </annotationProcessorPaths>
                     <compilerArgs>
                         <compilerArg>
-                            -Amapstruct.defaultComponentModel=spring
+                            -Amapstruct.defaultComponentModel=default
                         </compilerArg>
                     </compilerArgs>
                 </configuration>
@@ -108,8 +113,8 @@
                         <configuration>
                             <inputSpec>${project.basedir}/src/main/resources/api/v1.yaml</inputSpec>
                             <generatorName>spring</generatorName>
-                            <apiPackage>lu.hal.demo.api.v1</apiPackage>
-                            <modelPackage>lu.hal.demo.api.v1</modelPackage>
+                            <apiPackage>lux.hal.demo.api.v1</apiPackage>
+                            <modelPackage>lux.hal.demo.api.v1</modelPackage>
                             <generateSupportingFiles>true</generateSupportingFiles>
                             <modelNameSuffix>Dto</modelNameSuffix>
                             <configOptions>

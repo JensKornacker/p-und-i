@@ -1,4 +1,4 @@
-package lu.hal.demo.config;
+package lux.hal.demo.config;
 
 import java.sql.Connection;
 import javax.sql.DataSource;

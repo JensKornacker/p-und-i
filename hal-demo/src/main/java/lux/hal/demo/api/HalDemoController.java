@@ -1,9 +1,8 @@
-package lu.hal.demo.api;
+package lux.hal.demo.api;
 
-import lombok.extern.slf4j.Slf4j;
-import lu.hal.demo.api.v1.HalDemoApi;
-import lu.hal.demo.api.v1.HalDemoDto;
-import lu.hal.demo.service.HalDemo;
+import lux.hal.demo.api.v1.HalDemoApi;
+import lux.hal.demo.api.v1.HalDemoDto;
+import lux.hal.demo.service.HalDemoWorkflow;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,12 +11,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class HalDemoController implements HalDemoApi {
 
     @Autowired
-    private HalDemo halDemoService;
+    private HalDemoWorkflow halDemoWorkflowService;
 
     @Override
     public ResponseEntity<String> requestHalDemo(HalDemoDto halDemoDto) {
         try {
-            String halDemoWorkflowId = halDemoService.startHalDemoWorkflow(halDemoDto);
+            String halDemoWorkflowId = halDemoWorkflowService.startHalDemoWorkflow(halDemoDto);
             return ResponseEntity.ok(halDemoWorkflowId);
         } catch (Exception e) {
             throw new RuntimeException(e.getMessage());

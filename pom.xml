@@ -9,7 +9,7 @@
         <relativePath/> &lt;!&ndash; lookup parent from repository &ndash;&gt;
     </parent>-->
 
-    <groupId>lu.hal</groupId>
+    <groupId>lux.hal</groupId>
     <artifactId>cash-workflow</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
@@ -22,7 +22,9 @@
         <mapstruct.version>1.5.5.Final</mapstruct.version>
         <vanillabp.camunda8.spring.boot.adapter.version>1.0.6</vanillabp.camunda8.spring.boot.adapter.version>
         <vanillabp-spi.version>1.0.2</vanillabp-spi.version>
-        <vanillabp.spring.boot.version>1.0.5</vanillabp.spring.boot.version>
+        <vanillabp.spring.boot.version>1.0.6-SNAPSHOT</vanillabp.spring.boot.version>
+        <lombok.version>1.18.30</lombok.version>
+        <postgresql.version>42.6.0</postgresql.version>
     </properties>
 
     <modules>
@@ -51,12 +53,12 @@
             <dependency>
                 <groupId>org.postgresql</groupId>
                 <artifactId>postgresql</artifactId>
-                <version>42.6.0</version>
+                <version>${postgresql.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
-                <version>1.18.30</version>
+                <version>${lombok.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.mapstruct</groupId>

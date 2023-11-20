@@ -1,4 +1,4 @@
-package lu.hal.demo.config;
+package lux.hal.demo.config;
 
 import io.vanillabp.springboot.modules.WorkflowModuleIdAwareProperties;
 import io.vanillabp.springboot.modules.WorkflowModuleProperties;
