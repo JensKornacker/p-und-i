@@ -22,7 +22,7 @@ public class HalDemoWorkflow {
     @Autowired
     private ProcessService<HalDemoAggregate> halDemoProcessService;
 
-    @WorkflowTask(taskDefinition = "demoTask")
+    @WorkflowTask
     public void demoTask() {
         log.info("demoTask");
     }
@@ -35,9 +35,16 @@ public class HalDemoWorkflow {
         return hal.getId();
     }
 
-    @WorkflowTask(taskDefinition = "secondDemoTask")
+    @WorkflowTask
     public void secondDemoTask() {
         log.info("second Demo Task");
+    }
+
+    @WorkflowTask
+    public void sendEvent(HalDemoAggregate halDemoAggregate) {
+        log.info(halDemoAggregate.getId());
+        log.info(halDemoAggregate.getDemoType());
+        halDemoProcessService.correlateMessage(halDemoAggregate, "receive_demo", halDemoAggregate.getDemoType());
     }
 
 }
