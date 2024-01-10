@@ -16,6 +16,9 @@ public class CircleOrganisationAggregate {
     @Column(name = "type")
     private String circleType;
 
+    @Column(name = "name")
+    private String circleName;
+
     /* *******
      * Due to a known bug in mapstruct in combination with Lombok annotations
      * we use manually written Getters and Setters
@@ -35,5 +38,13 @@ public class CircleOrganisationAggregate {
 
     public void setCircleType(final String demoType) {
         this.circleType = demoType;
+    }
+
+    public String getCircleName() {
+        return circleName;
+    }
+
+    public void setCircleName(final String circleName) {
+        this.circleName = circleName;
     }
 }

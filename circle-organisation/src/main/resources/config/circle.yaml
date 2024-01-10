@@ -1,7 +1,0 @@
-#spring:
-#  liquibase:
-#    circle:
-#      change-log: classpath:liquibase/circle-changelog-main.yaml
-#      database-change-log-table: circle_changelog
-#      database-change-log-lock-table: circle_changeloglock
-#      contexts: circle  # see https://github.com/liquibase/liquibase/issues/4582
