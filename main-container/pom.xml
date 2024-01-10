@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>lux.hal</groupId>
-        <artifactId>cash-workflow</artifactId>
+        <groupId>at.phactum</groupId>
+        <artifactId>product-innovation</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
@@ -20,7 +20,7 @@
     <dependencies>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>hal-demo</artifactId>
+            <artifactId>circle-organisation</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
@@ -40,7 +40,7 @@
 
         <dependency>
             <groupId>org.camunda.community.vanillabp</groupId>
-            <artifactId>camunda8-spring-boot-adapter</artifactId>
+            <artifactId>camunda7-spring-boot-adapter</artifactId>
         </dependency>
 
     </dependencies>

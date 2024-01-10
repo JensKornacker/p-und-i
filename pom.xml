@@ -2,33 +2,27 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <!--<parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.1.5</version>
-        <relativePath/> &lt;!&ndash; lookup parent from repository &ndash;&gt;
-    </parent>-->
 
-    <groupId>lux.hal</groupId>
-    <artifactId>cash-workflow</artifactId>
+    <groupId>at.phactum</groupId>
+    <artifactId>product-innovation</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>cash-workflow</name>
-    <description>Demo workflow project for hal</description>
+    <name>product innovation</name>
+    <description> workflow project for PI</description>
 
     <properties>
-        <org.springframework.boot.version>2.7.16</org.springframework.boot.version>
+        <org.springframework.boot.version>3.1.5</org.springframework.boot.version>
         <java.version>17</java.version>
         <mapstruct.version>1.5.5.Final</mapstruct.version>
-        <vanillabp.camunda8.spring.boot.adapter.version>1.0.6</vanillabp.camunda8.spring.boot.adapter.version>
+        <vanillabp.camunda7.spring.boot.adapter.version>1.1.2</vanillabp.camunda7.spring.boot.adapter.version>
         <vanillabp-spi.version>1.0.2</vanillabp-spi.version>
-        <vanillabp.spring.boot.version>1.0.6-SNAPSHOT</vanillabp.spring.boot.version>
+        <vanillabp.spring.boot.version>1.0.7</vanillabp.spring.boot.version>
         <lombok.version>1.18.30</lombok.version>
         <postgresql.version>42.6.0</postgresql.version>
     </properties>
 
     <modules>
-        <module>hal-demo</module>
+        <module>circle-organisation</module>
         <module>main-container</module>
     </modules>
 
@@ -47,7 +41,7 @@
             <dependency>
                 <groupId>org.liquibase</groupId>
                 <artifactId>liquibase-core</artifactId>
-                <version>4.14.0</version>
+                <version>4.23.0</version>
             </dependency>
 
             <dependency>
@@ -65,10 +59,11 @@
                 <artifactId>mapstruct</artifactId>
                 <version>${mapstruct.version}</version>
             </dependency>
+            <!-- camunda & vanilla things -->
             <dependency>
                 <groupId>org.camunda.community.vanillabp</groupId>
-                <artifactId>camunda8-spring-boot-adapter</artifactId>
-                <version>${vanillabp.camunda8.spring.boot.adapter.version}</version>
+                <artifactId>camunda7-spring-boot-adapter</artifactId>
+                <version>${vanillabp.camunda7.spring.boot.adapter.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.vanillabp</groupId>

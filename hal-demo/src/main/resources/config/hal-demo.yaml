@@ -1,7 +1,0 @@
-spring:
-  liquibase:
-    hal-demo:
-      change-log: classpath:liquibase/hal-demo-master.yaml
-      database-change-log-table: hal_demo_changelog
-      database-change-log-lock-table: hal_demo_changeloglock
-      contexts: hal-demo  # see https://github.com/liquibase/liquibase/issues/4582

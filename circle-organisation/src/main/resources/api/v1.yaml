@@ -1,0 +1,35 @@
+openapi: 3.0.3
+info:
+  description: Circle Organisation
+  version: '1.0'
+  title: P & I Circle Organisation
+servers:
+  - url: /api/v1
+
+paths:
+  /circle/request:
+    post:
+      tags:
+        - circle-organisation
+      summary: notify about a circle-organisation request
+      operationId: requestCircleOrganisation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CircleOrganisation'
+      responses:
+        200:
+          description: the circle-organisation
+          content:
+            application/json:
+              schema:
+                description: the circle-organisation id
+                type: string
+components:
+  schemas:
+    CircleOrganisation:
+      type: object
+      properties:
+        circleName:
+          type: string

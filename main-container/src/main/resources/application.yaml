@@ -3,15 +3,15 @@ spring:
     name: cash-workflow
   liquibase:
     enabled: true
-    change-log: classpath:/db/db.changelog-master.yaml
+    change-log: classpath:db/db.changelog-master.yaml
   jpa:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
   datasource:
-    url: jdbc:postgresql://localhost:5454/hal-bank
-    password: hal-bank
-    username: hal-bank
+    url: jdbc:postgresql://localhost:5454/circle-organisation
+    password: circle-organisation
+    username: circle-organisation
 
 zeebe:
   client:
@@ -22,7 +22,7 @@ zeebe:
 
 vanillabp:
   adapters:
-    camunda8:
+    camunda7:
       resources-path: processes
 
 server:
