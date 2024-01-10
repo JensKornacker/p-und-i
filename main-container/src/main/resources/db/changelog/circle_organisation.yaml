@@ -1,10 +1,10 @@
 databaseChangeLog:
   - changeSet:
-      id: simple_task-table
+      id: circle-organisation-table
       author: jensitus
       changes:
         - createTable:
-            tableName: simple_task
+            tableName: circle_organisation
             columns:
               - column:
                   name: id
@@ -14,3 +14,13 @@ databaseChangeLog:
               - column:
                   name: type
                   type: varchar(128)
+  - changeSet:
+      id: add-name-to-circle
+      author: jensitus
+      changes:
+        - addColumn:
+            tableName: circle_organisation
+            columns:
+              - column:
+                  name: name
+                  type: varchar(255)

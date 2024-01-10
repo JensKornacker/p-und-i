@@ -1,30 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0tiel9o" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.17.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0tiel9o" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.17.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
   <bpmn:process id="CircleOrganisationWorkflow" name="Circle Organisation Workflow" isExecutable="true" camunda:historyTimeToLive="180">
     <bpmn:startEvent id="StartEvent_1">
       <bpmn:outgoing>Flow_0aih0xp</bpmn:outgoing>
     </bpmn:startEvent>
     <bpmn:endEvent id="Event_0kia13v">
-      <bpmn:incoming>Flow_1ybb3wh</bpmn:incoming>
+      <bpmn:incoming>Flow_091s1p6</bpmn:incoming>
     </bpmn:endEvent>
-    <bpmn:sequenceFlow id="Flow_1ybb3wh" sourceRef="Activity_0fdudjn" targetRef="Event_0kia13v" />
-    <bpmn:sequenceFlow id="Flow_0aih0xp" sourceRef="StartEvent_1" targetRef="Activity_0fdudjn" />
-    <bpmn:manualTask id="Activity_0fdudjn" name="Manuell">
+    <bpmn:sequenceFlow id="Flow_1ybb3wh" sourceRef="first_circle" targetRef="Event_0jv6ryu" />
+    <bpmn:sequenceFlow id="Flow_0aih0xp" sourceRef="StartEvent_1" targetRef="first_circle" />
+    <bpmn:serviceTask id="first_circle" name="First Circle" camunda:expression="${firstCircle}">
       <bpmn:incoming>Flow_0aih0xp</bpmn:incoming>
       <bpmn:outgoing>Flow_1ybb3wh</bpmn:outgoing>
-    </bpmn:manualTask>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_091s1p6" sourceRef="Event_0jv6ryu" targetRef="Event_0kia13v" />
+    <bpmn:intermediateCatchEvent id="Event_0jv6ryu">
+      <bpmn:incoming>Flow_1ybb3wh</bpmn:incoming>
+      <bpmn:outgoing>Flow_091s1p6</bpmn:outgoing>
+      <bpmn:timerEventDefinition id="TimerEventDefinition_0nwysfr">
+        <bpmn:timeDuration xsi:type="bpmn:tFormalExpression">PT3M</bpmn:timeDuration>
+      </bpmn:timerEventDefinition>
+    </bpmn:intermediateCatchEvent>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="CircleOrganisationWorkflow">
-      <bpmndi:BPMNShape id="Event_0kia13v_di" bpmnElement="Event_0kia13v">
-        <dc:Bounds x="512" y="102" width="36" height="36" />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
         <dc:Bounds x="172" y="102" width="36" height="36" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1vmq1s9_di" bpmnElement="Activity_0fdudjn">
+      <bpmndi:BPMNShape id="Event_0kia13v_di" bpmnElement="Event_0kia13v">
+        <dc:Bounds x="692" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1gfh4ft_di" bpmnElement="first_circle">
         <dc:Bounds x="320" y="80" width="100" height="80" />
         <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0nkz2hu_di" bpmnElement="Event_0jv6ryu">
+        <dc:Bounds x="512" y="102" width="36" height="36" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_0aih0xp_di" bpmnElement="Flow_0aih0xp">
         <di:waypoint x="208" y="120" />
@@ -33,6 +44,10 @@
       <bpmndi:BPMNEdge id="Flow_1ybb3wh_di" bpmnElement="Flow_1ybb3wh">
         <di:waypoint x="420" y="120" />
         <di:waypoint x="512" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_091s1p6_di" bpmnElement="Flow_091s1p6">
+        <di:waypoint x="548" y="120" />
+        <di:waypoint x="692" y="120" />
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>

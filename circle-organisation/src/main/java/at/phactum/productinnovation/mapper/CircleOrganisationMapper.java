@@ -8,6 +8,6 @@ import org.mapstruct.Mapper;
 @Mapper
 public interface CircleOrganisationMapper {
 
-    CircleOrganisationAggregate mapToEntity(CircleOrganisationDto halDemoDto);
+    CircleOrganisationAggregate mapToEntity(CircleOrganisationDto circleOrganisationDto);
 
 }

@@ -9,6 +9,7 @@ import at.phactum.productinnovation.mapper.CircleOrganisationMapper;
 import io.vanillabp.spi.process.ProcessService;
 import io.vanillabp.spi.service.WorkflowService;
 import io.vanillabp.spi.service.WorkflowTask;
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.mapstruct.factory.Mappers;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,28 +24,17 @@ public class CircleOrganisationWorkflow {
     private ProcessService<CircleOrganisationAggregate> circleOrganisationProcessService;
 
     @WorkflowTask
-    public void demoTask() {
-        log.info("demoTask");
+    public void firstCircle(CircleOrganisationAggregate circleOrganisationAggregate) {
+        log.info("firstCircle {}", circleOrganisationAggregate.getId());
     }
 
-    public String startHalDemoWorkflow(CircleOrganisationDto halDemoDto) throws Exception {
+    @SneakyThrows
+    public String startCircleOrganisationWorkflow(CircleOrganisationDto circleOrganisationDto) {
         final CircleOrganisationMapper mapper = Mappers.getMapper(CircleOrganisationMapper.class);
-        CircleOrganisationAggregate circleOrganisationAggregate = mapper.mapToEntity(halDemoDto);
+        CircleOrganisationAggregate circleOrganisationAggregate = mapper.mapToEntity(circleOrganisationDto);
         circleOrganisationAggregate.setId(UUID.randomUUID().toString());
-        CircleOrganisationAggregate hal = circleOrganisationProcessService.startWorkflow(circleOrganisationAggregate);
-        return hal.getId();
-    }
-
-    @WorkflowTask
-    public void secondDemoTask() {
-        log.info("second Demo Task");
-    }
-
-    @WorkflowTask
-    public void sendEvent(CircleOrganisationAggregate circleOrganisationAggregate) {
-        log.info(circleOrganisationAggregate.getId());
-        log.info(circleOrganisationAggregate.getDemoType());
-        circleOrganisationProcessService.correlateMessage(circleOrganisationAggregate, "receive_demo", circleOrganisationAggregate.getDemoType());
+        CircleOrganisationAggregate saved = circleOrganisationProcessService.startWorkflow(circleOrganisationAggregate);
+        return saved.getId();
     }
 
 }

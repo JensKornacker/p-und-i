@@ -16,17 +16,8 @@ public class CircleOrganisationController implements CircleApi {
     @Autowired
     private CircleOrganisationWorkflow circleOrganisationWorkflowService;
 
-//    public ResponseEntity<String> requestHalDemo(CircleOrganisationDto circleOrganisationDto) {
-//        try {
-//            String circleOrganisationWorkflowId = circleOrganisationWorkflowService.startHalDemoWorkflow(circleOrganisationDto);
-//            return ResponseEntity.ok(circleOrganisationWorkflowId);
-//        } catch (Exception e) {
-//            throw new RuntimeException(e.getMessage());
-//        }
-//    }
-
     @Override
     public ResponseEntity<String> requestCircleOrganisation(final CircleOrganisationDto circleOrganisationDto) {
-        return CircleApi.super.requestCircleOrganisation(circleOrganisationDto);
+        return ResponseEntity.ok(circleOrganisationWorkflowService.startCircleOrganisationWorkflow(circleOrganisationDto));
     }
 }

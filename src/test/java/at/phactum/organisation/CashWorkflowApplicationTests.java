@@ -1,4 +1,4 @@
-package lu.hal.cashworkflow;
+package at.phactum.organisation;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

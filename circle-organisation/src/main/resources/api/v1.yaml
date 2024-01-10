@@ -33,3 +33,5 @@ components:
       properties:
         circleName:
           type: string
+        circleType:
+          type: string

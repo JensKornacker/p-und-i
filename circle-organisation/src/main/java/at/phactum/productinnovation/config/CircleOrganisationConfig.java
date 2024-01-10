@@ -6,8 +6,8 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration
-@ConfigurationProperties(prefix = CircleOrganisationConfig.WORKFLOW_MODULE_ID)
+// @Configuration
+// @ConfigurationProperties(prefix = CircleOrganisationConfig.WORKFLOW_MODULE_ID)
 public class CircleOrganisationConfig implements WorkflowModuleIdAwareProperties {
     public static final String WORKFLOW_MODULE_ID = "circle-organisation";
 

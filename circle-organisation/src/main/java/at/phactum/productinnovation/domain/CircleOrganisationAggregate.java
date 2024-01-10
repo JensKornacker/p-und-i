@@ -6,7 +6,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "simple_task")
+@Table(name = "circle_organisation")
 public class CircleOrganisationAggregate {
 
     @Id
@@ -14,7 +14,7 @@ public class CircleOrganisationAggregate {
     private String id;
 
     @Column(name = "type")
-    private String demoType;
+    private String circleType;
 
     /* *******
      * Due to a known bug in mapstruct in combination with Lombok annotations
@@ -29,11 +29,11 @@ public class CircleOrganisationAggregate {
         this.id = id;
     }
 
-    public String getDemoType() {
-        return demoType;
+    public String getCircleType() {
+        return circleType;
     }
 
-    public void setDemoType(final String demoType) {
-        this.demoType = demoType;
+    public void setCircleType(final String demoType) {
+        this.circleType = demoType;
     }
 }
